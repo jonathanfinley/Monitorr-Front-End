@@ -1,0 +1,32 @@
+.md-card {
+  width: 350px !important;
+  margin: 4px;
+  //display: inline-block;
+  vertical-align: top;
+}
+.thumbsup {
+  color: green !important;
+}
+.thumbsdown {
+  color: red !important;
+}
+
+// Drawer
+.md-drawer {
+  width: 200px;
+  max-width: calc(100vw - 125px);
+}
+.toolbar-logo {
+    height:30px !important;
+}
+
+.md-content {
+    background-color: #1F1F1F !important;
+}
+body {
+        background-color: #1F1F1F !important;
+}
+
+.md-app {
+    height: 100vh;
+ }
