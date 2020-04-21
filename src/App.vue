@@ -27,6 +27,7 @@
               <Clock />
             </md-card>
           </md-list-item>
+              <md-divider />
           <md-list-item to="/">
             <span class="md-list-item-text">Home</span>
             <md-icon>home</md-icon>

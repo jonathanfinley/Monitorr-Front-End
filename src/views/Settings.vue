@@ -12,9 +12,23 @@
             </div>
           </div>
         </md-tab>
-        <md-tab id="tab-app-settings" md-label="App Settings" md-icon="settings_applications"></md-tab>
-
-        <md-tab id="tab-user-settings" md-label="User Settings" md-icon="face"></md-tab>
+        <md-tab id="tab-app-settings" md-label="App Settings" md-icon="settings_applications">
+          <div>Title</div>
+          <div>URL</div>
+          <div>Branch</div>
+          <div>Timezome</div>
+          <div>Time Standard</div>
+          <div>Custom CSS</div>
+        </md-tab>
+        <md-tab id="tab-user-settings" md-label="User Settings" md-icon="face">
+          <div>Title</div>
+          <div>URL</div>
+          <div>Branch</div>
+          <div>Timezome</div>
+          <div>Time Standard</div>
+          <div>Custom CSS</div>
+        </md-tab>
+        <md-tab id="tab-info" md-label="App Info" md-icon="info">Info</md-tab>
       </md-tabs>
     </div>
   </div>
