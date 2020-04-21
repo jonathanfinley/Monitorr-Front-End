@@ -38,3 +38,22 @@
       sitelogo: sitelogo,
     };
   },
+
+    computed: {
+    ...mapState(['time']),
+  },
+  methods: {
+    ...mapActions(["getSites"]),
+  },
+  mounted() {
+    this.getSites();
+    setInterval(() => {
+      this.getSites();
+    }, 10000);
+  },
+  data: () => ({ menuVisible: false }),
+    methods: {
+      toggleMenu () {
+        this.menuVisible = !this.menuVisible
+      }
+    },

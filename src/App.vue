@@ -3,27 +3,30 @@
     <md-app md-waterfall md-mode="fixed">
       <md-app-toolbar class="md-primary md-dense">
         <div class="md-toolbar-row">
-          <img class="toolbar-logo" src="@/assets/monitorr_text_white_glow.png" alt="Logo" />
-          <div class="md-toolbar-section-end">
-            <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
-              <md-icon>menu</md-icon></md-button>
+          <div class="md-toolbar-section-start">
+            <md-button class="md-icon-button" @click="toggleMenu" v-if="!menuVisible">
+              <md-icon>menu</md-icon>
+            </md-button>
+            <img class="toolbar-logo" src="@/assets/monitorr_text_white_glow.png" alt="Logo" />
           </div>
         </div>
       </md-app-toolbar>
 
-      <md-app-drawer class="md-right" :md-active.sync="menuVisible">
+      <md-app-drawer :md-active.sync="menuVisible" md-persistent="full">
         <md-toolbar class="md-transparent" md-elevation="0">
-          Navigation
+          <span>Navigation</span>
+          <div class="md-toolbar-section-end">
+            <md-button class="md-icon-button md-dense" @click="toggleMenu">
+              <md-icon>keyboard_arrow_left</md-icon>
+            </md-button>
+          </div>
         </md-toolbar>
-
         <md-list>
           <md-list-item>
             <md-card>
               <Clock />
             </md-card>
           </md-list-item>
-
-
           <md-list-item to="/">
             <span class="md-list-item-text">Home</span>
             <md-icon>home</md-icon>
@@ -41,19 +44,19 @@
 
           <md-divider></md-divider>
 
-          <md-list-item >
+          <md-list-item>
             <span class="md-list-item-text">"Login/Out"</span>
             <md-icon>input</md-icon>
           </md-list-item>
 
           <md-divider></md-divider>
 
-          <md-list-item to="https://github.com/monitorr/monitorr">
+          <md-list-item href="https://github.com/monitorr/monitorr">
             <span class="md-list-item-text">GitHub</span>
             <md-icon>error</md-icon>
           </md-list-item>
 
-          <md-list-item to="https://github.com/monitorr/monitorr">
+          <md-list-item href="https://github.com/monitorr/monitorr">
             <span class="md-list-item-text">Support</span>
             <md-icon>error</md-icon>
           </md-list-item>
@@ -76,29 +79,31 @@ import "vue-material/dist/vue-material.min.css";
 import "vue-material/dist/theme/default-dark.css";
 import "@/assets/css/main.scss";
 import { mapActions } from "vuex";
-import { mapState} from 'vuex';
-import Clock from './components/clock.vue';
+import { mapState } from "vuex";
+import Clock from "./components/clock.vue";
 
 export default {
   computed: {
-    ...mapState(['time']),
-  },
-  methods: {
-    ...mapActions(["getSites"]),
-  },
-  mounted() {
-    this.getSites();
-    setInterval(() => {
-      this.getSites();
-    }, 10000);
+    ...mapState(["time"]),
   },
   data() {
     return {
       menuVisible: false,
     };
   },
-  components: {
-    Clock
+  methods: {
+    ...mapActions(["getSites"]),
+    toggleMenu() {
+      this.menuVisible = !this.menuVisible;
+    },
   },
+  mounted() {
+    this.getSites().then(() => {
+      setInterval(() => {
+        this.getSites();
+      }, 10000);
+    });
+  },
+  components: { Clock },
 };
 </script>
