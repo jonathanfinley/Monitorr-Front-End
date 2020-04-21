@@ -1,12 +1,28 @@
 <template>
   <div class="settings">
-    <h1>This is an settings page</h1>
+    <h1>This is a settings page</h1>
+    <div>
+      <md-tabs>
+        <md-tab id="tab-services" md-label="Services" md-icon="list_alt">
+          <div class="home">
+            <div class="md-layout md-alignment-top-center" v-if="sites.length > 0">
+              <div class="md-layout-item" v-for="site in sites" v-bind:key="site.id">
+                <Site :site="site" :message="randomVariable" />
+              </div>
+            </div>
+          </div>
+        </md-tab>
+        <md-tab id="tab-app-settings" md-label="App Settings" md-icon="settings_applications"></md-tab>
+
+        <md-tab id="tab-user-settings" md-label="User Settings" md-icon="face"></md-tab>
+      </md-tabs>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
-import Site from "@/components/Site.vue";
+import Site from "@/components/SiteEdit.vue";
 
 export default {
   name: "Home",
@@ -17,8 +33,8 @@ export default {
     Site
   },
   data() {
-    return { 
-      randomVariable: 'hello hello hello',
+    return {
+      randomVariable: "hello hello hello"
     };
   }
 };
