@@ -13,12 +13,7 @@
           </div>
         </md-tab>
         <md-tab id="tab-app-settings" md-label="App Settings" md-icon="settings_applications">
-          <div>Title</div>
-          <div>URL</div>
-          <div>Branch</div>
-          <div>Timezome</div>
-          <div>Time Standard</div>
-          <div>Custom CSS</div>
+          <div>Refresh Interval</div>
         </md-tab>
         <md-tab id="tab-user-settings" md-label="User Settings" md-icon="face">
           <div>Title</div>
@@ -28,7 +23,28 @@
           <div>Time Standard</div>
           <div>Custom CSS</div>
         </md-tab>
-        <md-tab id="tab-info" md-label="App Info" md-icon="info">Info</md-tab>
+        <md-tab id="tab-info" md-label="App Info" md-icon="info">
+          <div>Info</div>
+          <div>Monitorr Installed Version</div>
+          <div>Monitorr Repo Version</div>
+          <div>OS / Version</div>
+          <div>Install Path</div>
+          <div>DB Path</div>
+          <div>Resources. (Github, Feathug, Docker, Discord, Donate)</div>
+          <div>Release Log</div>
+          <md-divider />
+          <div>
+            <h2>TO DO:</h2>
+            <p>
+              <br />- Finish Settings GUI Build
+              <br />- Clean Up CSS
+              <br />- Investivate Homepage stuff
+              <br />- Footer
+              <br />- Login logout things
+              <br />- FontAwesome
+            </p>
+          </div>
+        </md-tab>
       </md-tabs>
     </div>
   </div>
