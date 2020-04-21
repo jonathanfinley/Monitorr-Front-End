@@ -19,12 +19,11 @@
         <md-list>
           <md-list-item>
             <md-card>
-            <span class="md-list-item-text">clock</span>
-            <DatClock />
-            
-            <md-icon>schedule</md-icon>
+              <Clock />
             </md-card>
           </md-list-item>
+
+
           <md-list-item to="/">
             <span class="md-list-item-text">Home</span>
             <md-icon>home</md-icon>
@@ -77,8 +76,13 @@ import "vue-material/dist/vue-material.min.css";
 import "vue-material/dist/theme/default-dark.css";
 import "@/assets/css/main.scss";
 import { mapActions } from "vuex";
+import { mapState} from 'vuex';
+import Clock from './components/clock.vue';
 
 export default {
+  computed: {
+    ...mapState(['time']),
+  },
   methods: {
     ...mapActions(["getSites"]),
   },
@@ -92,6 +96,9 @@ export default {
     return {
       menuVisible: false,
     };
+  },
+  components: {
+    Clock
   },
 };
 </script>

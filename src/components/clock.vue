@@ -3,12 +3,12 @@
 </template>
 
 <script>
-  import { mapState, mapAction } from 'vuex';
+  import { mapState, mapActions } from 'vuex';
   import Clock from 'vue-clock2';
   export default {
     components: { Clock },
     methods: {
-      ...mapAction(['getTime']),
+      ...mapActions(['getTime']),
     },
     computed: {
       ...mapState(['time']),
